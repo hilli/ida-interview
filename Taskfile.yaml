@@ -1,0 +1,13 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - go build -o webserver webserver.go
+  
+  container:
+    env:
+      DOCKER_BUILDKIT: 1
+    cmds:
+      - docker build -t docker.io/hilli/ida-interview .
+      - docker push docker.io/hilli/ida-interview
